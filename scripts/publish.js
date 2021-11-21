@@ -4,7 +4,7 @@
 
 var spawnSync = require('child_process').spawnSync;
 
-var args = ['package', 'publish'];
+var args = ['publish'];
 
 if (process.env.DEBUG === 'true') {
   args = args.concat(['--debug']);
@@ -14,7 +14,7 @@ if (process.env.TARGET_ARCH) {
   args = args.concat(['--target_arch=' + process.env.TARGET_ARCH]);
 }
 
-var result = spawnSync('node-pre-gyp', args, {
+var result = spawnSync('node-pre-gyp-github', args, {
   shell: true,
   stdio: 'inherit'
 });
